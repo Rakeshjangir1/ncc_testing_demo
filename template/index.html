@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+    <title>Document</title>
+    <style>
+        .hide_form {
+            display: none;
+        }
+        .container-fluid {
+    background-color: #036b6e;
+    color: white;
+}
+
+.nav {
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.nav:hover {
+    background-color: #078d92;
+    border-radius: 20px;
+}
+
+.log_selection {
+    box-shadow: 0px 0px 10px 10px gold;
+    background-color: #3c6382;
+}
+
+.popup_window {
+    margin-top: -30px;
+    margin-left: 50px;
+    position: absolute;
+    display: none;
+}
+
+.pop_nav {
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.form_label {
+    color: white;
+    font-size: 20px;
+}
+
+#cross_cut_office {
+    color: red;
+    margin-right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+b:hover {
+    color: rgb(231, 80, 80);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form_labels {
+    border-radius: 30px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.activate {
+    background-color: black;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 10px gold;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <img src="{% static 'NCClogo.png' %}" style="width:200px; height: 150px; " alt="logo">
+
+            </div>
+            <div class="col-md-10 text-center">
+                <h1>2/16 Coy Govt. College Ateli (M/Garh)</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-11 text-right">
+                <label class="nav" id="home_nav ">Home</label>
+                <label class="nav active" id="log_btn">Login/Signup</label>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+
+    <!-- Popup Window -->
+
+    <div id="popup_window" class="container popup_window position-fixed">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 log_selection">
+                <div class="row">
+                    <div class="col text-right">
+                        <label id="cross_cut_office">&times;</label>
+                    </div>
+                </div>
+                <div class="row pop_nav text-center">
+                    <div class="col-sm-6">
+                        <label class="form_labels activate" id="cadet_login">Cadet Login</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="form_labels" id="office_login">Official Login</label>
+                    </div>
+                </div>
+                <hr/>
+                <div class="row">
+
+                    <!-- Cadet Login Form -->
+                    <form class="" id="cadet_log" method="post" action="">
+                        <div class="form-group col-md-6">
+                            <label class="form_label">User Name</label>
+                            <input type="text" name="user_name" id="user_name" class="form-control" placeholder="" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted">Help text</small>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label class="form_label " id="password ">Password</label>
+                            <input type="text " name="user_pass " id="user_pass " class="form-control " placeholder=" " aria-describedby="helpId ">
+                            <small id="helpId " class="text-muted ">Help text</small>
+                        </div>
+                        <div class="form-group text-right ">
+                            <label style="cursor:pointer; margin-right: 20px; color: white; ">
+                                <u>Forgot Password</u>
+                            </label>
+                        </div>
+                        <div class="form-group row ">
+                            <dic class="col-md-6 text-center ">
+                                <button type="submit " class="btn btn-primary ">Submit</button>
+                            </dic>
+                            <dic class="col-md-6 text-center ">
+                                <button type="reset " class="btn btn-primary ">Reset</button>
+                            </dic>
+                        </div>
+                        <label style="color: white; margin-left: 15px;">Don't have an account yet! <u><b>Create Account</b></u></label>
+                    </form>
+
+                    <!-- Cadet Official Form -->
+                    <form class="hide_form" id="office_log" method="post " action=" ">
+                        <div class="form-group col-md-6 ">
+                            <label class="form_label " id="office_Id ">Enter Official Id</label>
+                            <input type="text " name="office_Id " id="office_Id " class="form-control " placeholder=" " aria-describedby="helpId ">
+                            <small id="helpId " class="text-muted ">Help text</small>
+                        </div>
+                        <div class="form-group col-md-6 ">
+                            <label class="form_label " id="password ">Enter Password</label>
+                            <input type="text " name="office_pass " id="office_pass " class="form-control " placeholder=" " aria-describedby="helpId ">
+                            <small id="helpId " class="text-muted ">Help text</small>
+                        </div>
+                        <div class="form-group text-right ">
+                            <label style="cursor:pointer; margin-right: 20px; color: white; ">
+                                <u>Reset Password</u>
+                            </label>
+                        </div>
+                        <div class="form-group row ">
+                            <dic class="col-md-6 text-center ">
+                                <button type="submit " class="btn btn-primary ">Signup</button>
+                            </dic>
+                            <dic class="col-md-6 text-center ">
+                                <button type="reset " class="btn btn-primary ">Reset</button>
+                            </dic>
+                        </div>
+                        <label style="color: white; margin-left: 15px;">Don't have an account yet! <u><b>Create Account</b></u></label>
+                    </form>
+                    <hr/>
+                    <h5 style="text-align: center; color: white;">|| NATIONAL CADET CORPS ||</h5>
+                </div>
+
+            </div>
+            <div class="col-sm-2 "></div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <img width="100%" height="600px" src="{% static 'bg.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Header End -->
+
+    <script>
+        document.getElementById("office_login").addEventListener("click", function() {
+            document.getElementById("cadet_login").classList.remove("activate", );
+            document.getElementById("cadet_log").classList.add("hide_form");
+            this.classList.add("activate");
+            document.getElementById("office_log").classList.remove("hide_form");
+        });
+
+        document.getElementById("cadet_login").addEventListener("click", function() {
+            document.getElementById("office_login").classList.remove("activate");
+            this.classList.add("activate");
+            document.getElementById("cadet_log").classList.remove("hide_form");
+            document.getElementById("office_log").classList.add("hide_form");
+        });
+
+        const popup_win = document.getElementById("popup_window");
+        document.getElementById("log_btn").addEventListener("click", (event) => {
+            if (popup_win.style.display == "none") {
+                popup_win.style.display = "block";
+            } else {
+                popup_win.style.display = "none";
+            }
+        });
+        document.getElementById("cross_cut_office").addEventListener("click", function() {
+            popup_win.style.display = "none";
+        });
+        document.getElementById("home_nav").addEventListener("click", function() {
+            popup_win.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>
